@@ -16,13 +16,16 @@ def draw_pornobalken(l_eye, r_eye, img):
     cv2.rectangle(img,l_eye,r_eye,(0,0,0),-1)
     return img
 
+#face = (x,y,width,height)
 def pixelate_face(img, face):
-    heigth = img.shape[0]
-    width = img.shape[1]
-    pixel_size = max(heigth, width)/100
-    for i in range(0, heigth-int(pixel_size), int(pixel_size)):
-        for y in range(int(pixel_size)):
+    heigth = face[3]
+    width = face[2]
+    print(face)
+    pixel_size = int(max(heigth, width)/10)
+    for i in range(face[1], face[1]+heigth, pixel_size):
+        for y in range(pixel_size):
             img[i+y] = img[i]
+            print(img[i][10])
     return img
 
 
