@@ -22,10 +22,7 @@ def pixelate_face(img, face):
     width = face[2]
     print(face)
     pixel_size = int(max(heigth, width)/10)
-    # for i in range(face[1], face[1]+heigth, pixel_size):
-    #     for y in range(pixel_size):
-    #         img[i+y] = img[i]
-    #         print(img[i][10])
+
     for w in range(face[1], face[1]+width, pixel_size):
         for h in range(face[0], face[0]+heigth, pixel_size):
             value = img[w][h]
