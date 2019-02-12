@@ -28,6 +28,8 @@ def pixelate_face(img, face):
             value = img[w][h]
             for x in range(w, w+pixel_size):
                 for y in range(h, h+pixel_size):
+                    x = min(x, img.shape[0])        #dont get an index error
+                    y = min(y, img.shape[1])
                     img[x][y] = value
 
     return img
@@ -51,7 +53,7 @@ def detect_and_anonymize(img):
     return ano_img 
 
 
-MODE = "image"  # webcam, image_folder, image
+MODE = "webcam"  # webcam, image_folder, image
 
 if(MODE == "image"):
     single_img = cv2.imread("image_data/testbild.jpg")
